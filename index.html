@@ -1,10 +1,397 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>我的作品集</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shuyu (William) Zhang — Portfolio</title>
+  <meta name="description" content="Mechanical Engineering @ Penn — interested in AI agents." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #0a0a0a;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .grain {
+      background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 4px 4px;
+    }
+
+    @keyframes tag-in {
+      from { opacity: 0; transform: translateY(8px) scale(0.9); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .tag {
+      animation: tag-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .tag:hover {
+      transform: translateY(-2px) rotate(-2deg);
+    }
+
+    .card {
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, background-color 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #fafafa 0%, #fafafa 60%, #a3a3a3 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bullets li {
+      position: relative;
+      padding-left: 14px;
+      line-height: 1.55;
+    }
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: rgb(120 113 108);
+    }
+
+    .pnum {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgb(82 82 82);
+    }
+
+    /* zoom-in to crop letterbox bars on wall-following video */
+    .crop-bars {
+      transform: scale(2.2);
+      transform-origin: center center;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.0); }
+      50% { box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.25); }
+    }
+    .flagship-glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+  </style>
 </head>
-<body>
-  <h1>欢迎来到我的项目作品集！</h1>
-  <p>这是我的课程项目展示。</p>
+<body class="bg-neutral-950 text-neutral-100 antialiased grain min-h-screen">
+
+  <!-- ───────────────────────────── Hero ───────────────────────────── -->
+  <section class="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto pt-12 pb-8 md:pt-16 md:pb-10">
+
+    <div class="flex items-baseline gap-4 mb-3 mono text-xs text-neutral-500">
+      <span class="tracking-[0.2em] uppercase">Portfolio</span>
+      <span>·</span>
+      <span>2026</span>
+      <span>·</span>
+      <span class="text-neutral-600">M.S. ME @ UPenn</span>
+    </div>
+
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.05] gradient-text mb-5">
+      Shuyu <span class="text-neutral-500 font-medium">(William)</span> Zhang
+    </h1>
+
+    <!-- YAML-style metadata block -->
+    <div class="mono text-xs md:text-sm grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1.5 max-w-2xl mb-5">
+      <span class="text-neutral-500">school</span>
+      <span class="text-neutral-300">M.S. Mechanical Engineering @ UPenn</span>
+
+      <span class="text-neutral-500">graduation</span>
+      <span class="text-neutral-300">May 2027</span>
+
+      <span class="text-neutral-500">focus</span>
+      <span class="text-neutral-300">[<span class="text-amber-300">AI agent tooling</span>, <span class="text-sky-300">robotics software</span>]</span>
+
+      <span class="text-neutral-500">status</span>
+      <span class="text-amber-300 font-medium">OPEN_TO_SUMMER_2026_INTERN</span>
+    </div>
+
+    <!-- Harness philosophy — italic manifesto-style quote -->
+    <blockquote class="text-sm md:text-base text-neutral-300 italic max-w-2xl border-l-2 border-amber-600/40 pl-4 mb-7 leading-relaxed">
+      Help agents understand the mechanism and the intent, rather than dictating what to do or what not to do. Treat them as a partner, not a worker.
+    </blockquote>
+
+    <div class="flex flex-wrap gap-2 mb-5 max-w-3xl">
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-pink-700/50 bg-pink-900/20 text-pink-200" style="animation-delay: 0.05s">vibe coding</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-blue-700/50 bg-blue-900/20 text-blue-200" style="animation-delay: 0.10s">SolidWorks</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-yellow-700/50 bg-yellow-900/20 text-yellow-200 mono" style="animation-delay: 0.15s">Python</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-indigo-700/50 bg-indigo-900/20 text-indigo-200 mono" style="animation-delay: 0.20s">C / C++</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-orange-700/50 bg-orange-900/20 text-orange-200 mono" style="animation-delay: 0.25s">Linux</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-rose-700/50 bg-rose-900/20 text-rose-200 mono" style="animation-delay: 0.30s">Git</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-amber-700/50 bg-amber-900/20 text-amber-200" style="animation-delay: 0.35s">Claude Code heavy user</span>
+      <span class="tag inline-block px-3 py-1 rounded-full text-xs border border-emerald-700/50 bg-emerald-900/20 text-emerald-200" style="animation-delay: 0.40s">OpenClaw player</span>
+    </div>
+
+    <div class="flex flex-wrap gap-2.5">
+      <a href="https://github.com/CircleOoneBlood" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1.5 bg-neutral-900 border border-neutral-700 text-neutral-200 px-3.5 py-1.5 rounded-md hover:border-neutral-500 hover:bg-neutral-800 transition font-medium text-xs">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/shuyu-zhang-79476139b/" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1.5 bg-neutral-900 border border-neutral-700 text-neutral-200 px-3.5 py-1.5 rounded-md hover:border-neutral-500 hover:bg-neutral-800 transition font-medium text-xs">
+        LinkedIn
+      </a>
+      <a href="mailto:zsy666@seas.upenn.edu"
+         class="inline-flex items-center gap-1.5 bg-neutral-900 border border-neutral-700 text-neutral-200 px-3.5 py-1.5 rounded-md hover:border-neutral-500 hover:bg-neutral-800 transition font-medium text-xs">
+        zsy666@seas.upenn.edu
+      </a>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────── Projects (V6 — uniform LR media) ───────────────────────────── -->
+  <section id="projects" class="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto pb-20">
+
+    <div class="flex items-baseline justify-between mb-6 border-t border-neutral-800 pt-8">
+      <h2 class="text-xl md:text-2xl font-bold tracking-tight">Selected projects</h2>
+      <span class="text-[10px] text-neutral-500 mono tracking-[0.2em] uppercase">06 / 2026</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-12">
+
+      <!-- ROW 1: VT (full width, horizontal flagship) ─────────────────────────────── -->
+      <div class="card md:col-span-12 bg-gradient-to-br from-amber-950/30 via-neutral-900 to-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-amber-700/50 flagship-glow"
+           >
+        <div class="grid grid-cols-1 md:grid-cols-5">
+          <!-- Video left (3/5) — 16:9 native, no crop, no bars -->
+          <div class="md:col-span-3 relative aspect-video overflow-hidden border-r border-neutral-800 bg-neutral-950">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/vt/demo.mp4"></video>
+            <div class="absolute top-3 left-3 text-2xl mono text-amber-300/80 font-bold drop-shadow-lg z-10">01</div>
+          </div>
+          <!-- Content right (2/5) -->
+          <div class="md:col-span-2 p-5 md:p-6 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] text-amber-400 mono uppercase tracking-wider">flagship · production</span>
+              <span class="text-[10px] text-neutral-600 mono">·</span>
+              <span class="text-[10px] text-neutral-500 mono">2026</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2 text-amber-100">Volunteer Tracker</h3>
+            <p class="text-sm text-neutral-300 mb-3 leading-snug">A production volunteer-management platform — built solo by pairing with Claude Code as the implementation agent.</p>
+            <ul class="bullets text-xs text-neutral-400 space-y-1.5 mb-4">
+              <li>Live deployment on a Mac mini · Cloudflare Tunnel</li>
+              <li>4-tier RBAC, Leaflet map, service-record submission</li>
+              <li>Three-layer self-healing ops loop (OpenClaw + SSH + UptimeRobot)</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Next.js</span>
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Postgres</span>
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Claude Code</span>
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2: Quadrotor + Manipulator ─────────────────────────────── -->
+
+      <!-- Quadrotor: col-span-2 (narrower), single thumb -->
+      <div class="card md:col-span-5 bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-sky-700/50 flex flex-col" >
+        <div class="aspect-video relative overflow-hidden bg-neutral-950">
+          <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/quadrotor/hardware.mp4"></video>
+          <div class="absolute top-2 left-2 text-xl mono text-sky-300/80 font-bold drop-shadow-lg z-10">02</div>
+          <span class="absolute bottom-1.5 left-2 text-[10px] mono text-sky-200/90 bg-black/40 px-1.5 py-0.5 rounded">CrazyFlie · real hardware</span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-[10px] text-sky-400 mono uppercase tracking-wider">robotics</span>
+            <span class="text-[10px] text-neutral-600 mono">·</span>
+            <span class="text-[10px] text-neutral-500 mono">MEAM 6200 · Jan – Mar 2026</span>
+          </div>
+          <h3 class="text-base font-semibold mb-1.5">Autonomous Quadrotor Navigation</h3>
+          <p class="text-xs text-neutral-300 mb-2 leading-snug">3D autonomous flight from simulation to a real Bitcraze CrazyFlie.</p>
+          <ul class="bullets text-xs text-neutral-400 space-y-1 mb-3">
+            <li>SE(3) geometric controller (Lee et al.) in simulation</li>
+            <li>A* + greedy line-of-sight pruning · minimum-jerk trajectory</li>
+            <li>Sim-to-real flight through 3 obstacle mazes</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Python</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">SE(3)</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">A*</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">CrazyFlie</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manipulator: col-span-7 wider, 2 thumbs 2/3 + 1/3, gap-2 between -->
+      <div class="card md:col-span-7 bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-emerald-700/50 flex flex-col" >
+        <div class="grid grid-cols-3 gap-2 bg-neutral-900 p-2">
+          <!-- Primary (2/3 width) -->
+          <div class="col-span-2 relative overflow-hidden bg-neutral-950 rounded-md" style="aspect-ratio: 16/9">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/manipulator/demo2.mp4"></video>
+            <span class="absolute bottom-1.5 left-2 text-[10px] mono text-emerald-200/90 bg-black/40 px-1.5 py-0.5 rounded">real hardware</span>
+            <div class="absolute top-2 left-2 text-xl mono text-emerald-300/80 font-bold drop-shadow-lg z-10">03</div>
+          </div>
+          <!-- Secondary (1/3 width) -->
+          <div class="col-span-1 relative overflow-hidden bg-neutral-950 rounded-md">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/manipulator/demo1.mp4"></video>
+            <span class="absolute bottom-1.5 left-2 text-[10px] mono text-teal-200/90 bg-black/40 px-1.5 py-0.5 rounded">simulation</span>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-[10px] text-emerald-400 mono uppercase tracking-wider">robotics</span>
+            <span class="text-[10px] text-neutral-600 mono">·</span>
+            <span class="text-[10px] text-neutral-500 mono">MEAM 5200 · Nov – Dec 2025</span>
+          </div>
+          <h3 class="text-base font-semibold mb-1.5">Vision-Guided Manipulation</h3>
+          <p class="text-xs text-neutral-300 mb-2 leading-snug">Pick-and-place pipeline on a 7-DOF Franka Panda — perception → planning → execution.</p>
+          <ul class="bullets text-xs text-neutral-400 space-y-1 mb-3">
+            <li>Inverse-kinematics solver and motion planner</li>
+            <li>Static + dynamically rotating platforms</li>
+            <li>Sim-to-real calibration on real hardware</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Python</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">ROS</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Gazebo</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Franka Panda</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 3: MEAM 5100 + Crane ─────────────────────────────── -->
+
+      <!-- MEAM 5100: col-span-6, wall following 33% (left, narrow → object-cover naturally crops side bars, preserves top/bottom); the robot 67% (right, primary, aspect-video drives row height) -->
+      <div class="card md:col-span-6 bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-purple-700/50 flex flex-col" >
+        <div class="grid grid-cols-3 gap-2 p-2 bg-neutral-900">
+          <!-- Wall following: 1/3 width — narrower aspect crops video sides via object-cover -->
+          <div class="col-span-1 relative overflow-hidden bg-neutral-950 rounded-md">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/meam5100/demo1.mp4"></video>
+            <span class="absolute bottom-1.5 left-2 text-[10px] mono text-purple-200/90 bg-black/40 px-1.5 py-0.5 rounded">wall following</span>
+            <div class="absolute top-2 left-2 text-xl mono text-purple-300/80 font-bold drop-shadow-lg z-10">04</div>
+          </div>
+          <!-- The robot photo: 2/3 width, aspect-video drives row height -->
+          <div class="col-span-2 relative overflow-hidden bg-neutral-950 rounded-md" style="aspect-ratio: 16/9">
+            <img class="absolute inset-0 w-full h-full object-cover" src="assets/projects/meam5100/demo2.jpg" alt="the robot">
+            <span class="absolute bottom-1.5 left-2 text-[10px] mono text-fuchsia-200/90 bg-black/40 px-1.5 py-0.5 rounded">the robot</span>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-[10px] text-purple-400 mono uppercase tracking-wider">mechatronics</span>
+            <span class="text-[10px] text-neutral-600 mono">·</span>
+            <span class="text-[10px] text-neutral-500 mono">MEAM 5100 · Nov – Dec 2025</span>
+          </div>
+          <h3 class="text-base font-semibold mb-1.5">Hybrid Competition Robot</h3>
+          <p class="text-xs text-neutral-300 mb-2 leading-snug">Team of 4 — only group of 36 to choose Ackermann steering. Led mechanical design.</p>
+          <ul class="bullets text-xs text-neutral-400 space-y-1 mb-3">
+            <li>SolidWorks chassis · 1 servo + 1 motor for full mobility</li>
+            <li>ESP32-C3 + custom 12V/5V/3.3V power architecture</li>
+            <li>Dual-mode: VIVE/ToF/PID autonomous + WiFi UI manual</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">ESP32-C3</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">SolidWorks</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">VIVE</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">PID</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crane: col-span-6, 2 thumbs 2/3 + 1/3, gap-2 between -->
+      <div class="card md:col-span-6 bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-orange-700/50 flex flex-col" >
+        <div class="grid grid-cols-3 gap-2 bg-neutral-900 p-2">
+          <!-- Primary (2/3 width): full overview -->
+          <div class="col-span-2 relative overflow-hidden bg-neutral-950 rounded-md" style="aspect-ratio: 16/9">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/crane/demo1.mp4"></video>
+            <span class="absolute bottom-1.5 left-2 text-[10px] mono text-orange-200/90 bg-black/40 px-1.5 py-0.5 rounded">overview</span>
+            <div class="absolute top-2 left-2 text-xl mono text-orange-300/80 font-bold drop-shadow-lg z-10">05</div>
+          </div>
+          <!-- Secondary (1/3 width): grip-and-stack action close-up -->
+          <div class="col-span-1 relative overflow-hidden bg-neutral-950 rounded-md">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/crane/demo2.mp4"></video>
+            <span class="absolute bottom-1.5 left-2 text-[10px] mono text-red-200/90 bg-black/40 px-1.5 py-0.5 rounded">grip &amp; stack</span>
+          </div>
+        </div>
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-[10px] text-orange-400 mono uppercase tracking-wider">leadership · hardware</span>
+            <span class="text-[10px] text-neutral-600 mono">·</span>
+            <span class="text-[10px] text-neutral-500 mono">SWJTU · Mar – Jul 2024</span>
+          </div>
+          <h3 class="text-base font-semibold mb-1.5">Multi-Arm Crane Robot</h3>
+          <p class="text-xs text-neutral-300 mb-2 leading-snug">Team Leader — 23 kg robot with 8 motors + 4 servos + IR sensors across 3 independent rotating arms.</p>
+          <ul class="bullets text-xs text-neutral-400 space-y-1 mb-3">
+            <li>STM32 firmware in C/C++ with PID control</li>
+            <li>Multi-process manufacturing — machining + 3D printing + sheet-metal cutting</li>
+            <li>Multi-angle grip-and-stack with 1 kg payload</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">STM32</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">CubeMX</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">C / C++</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">PID</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 4: Graduation (full width, horizontal) ─────────────────────────────── -->
+      <div class="card md:col-span-12 bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-stone-600/70" >
+        <div class="grid grid-cols-1 md:grid-cols-5">
+          <!-- Content left (2/5) -->
+          <div class="md:col-span-2 p-5 md:p-6 flex flex-col order-2 md:order-1">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] text-stone-400 mono uppercase tracking-wider">capstone · mechanical</span>
+              <span class="text-[10px] text-neutral-600 mono">·</span>
+              <span class="text-[10px] text-neutral-500 mono">SWJTU · 2024–2025</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Undergraduate Capstone</h3>
+            <p class="text-sm text-neutral-300 mb-3 leading-snug">Mechanical-heavy undergraduate final project with rich CAD design + custom debug + outcome documentation.</p>
+            <ul class="bullets text-xs text-neutral-400 space-y-1.5 mb-4">
+              <li>CAD design and SolidWorks modeling</li>
+              <li>Custom debug station for testing iterations</li>
+              <li>Final-outcome documentation and full report</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">SolidWorks</span>
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">Mechanical Design</span>
+              <span class="text-[10px] mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">CAD</span>
+            </div>
+          </div>
+          <!-- Media right (3/5) — phone video LEFT (portrait), CAD RIGHT (landscape) -->
+          <div class="md:col-span-3 grid grid-cols-3 gap-2 bg-neutral-900 p-2 order-1 md:order-2 md:border-l md:border-neutral-800">
+            <!-- Phone video takes 1 col (portrait), on LEFT -->
+            <div class="col-span-1 relative overflow-hidden bg-neutral-950 rounded-md">
+              <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover" src="assets/projects/graduation/demo.mp4"></video>
+              <span class="absolute bottom-2 left-2 text-[10px] mono text-zinc-200/90 bg-black/40 px-1.5 py-0.5 rounded">assembly</span>
+              <div class="absolute top-2 left-2 text-xl mono text-stone-300/80 font-bold drop-shadow-lg z-10">06</div>
+            </div>
+            <!-- CAD takes 2 cols (landscape), on RIGHT -->
+            <div class="col-span-2 relative overflow-hidden bg-neutral-950 rounded-md">
+              <img class="absolute inset-0 w-full h-full object-cover" src="assets/projects/graduation/cad.png" alt="CAD design">
+              <span class="absolute bottom-2 left-2 text-[10px] mono text-stone-200/90 bg-black/40 px-1.5 py-0.5 rounded">CAD design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto py-8 text-neutral-600 text-xs border-t border-neutral-900">
+    <div class="flex flex-wrap gap-3 justify-between items-center mono">
+      <p>© 2026 Shuyu (William) Zhang</p>
+      <p>Built with Claude Code · 1st year M.S. ME @ UPenn</p>
+    </div>
+  </footer>
+
+  <!-- Modal removed (V11): cards are static visuals -->
+
 </body>
 </html>
